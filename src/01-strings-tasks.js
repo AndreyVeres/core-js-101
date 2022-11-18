@@ -72,7 +72,7 @@ function getStringFromTemplate(firstName, lastName) {
  *   'Hello, Chuck Norris!' => 'Chuck Norris'
  */
 
-// console.log(extractNameFromTemplate('Hello, Chuck Norris!'))
+
 function extractNameFromTemplate(value) {
   // throw new Error('Not implemented');
   return value.slice(7, value.length - 1);
@@ -247,10 +247,21 @@ function getRectangleString(/* width, height */) {
  *    => 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'
  *
  */
-function encodeToRot13(/* str */) {
-  throw new Error('Not implemented');
+function encodeToRot13(str) {
+  // throw new Error('Not implemented');
+  const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  const alphabetUpper = 'abcdefghijklmnopqrstuvwxyz';
+  let result = '';
+  for (let i = 0; i < str.length; i += 1) {
+    const current = str[i];
+    const index = current === current.toUpperCase()
+      ? alphabetUpper.indexOf(current)
+      : alphabet.indexOf(current);
+    result += alphabet[index + 13 ? index + 13 : index + 13 - 26];
+  }
+  return result;
 }
-
+console.log(encodeToRot13('hello'));
 /**
  * Returns true if the value is string; otherwise false.
  * @param {string} value
@@ -267,7 +278,6 @@ function encodeToRot13(/* str */) {
 function isString(/* value */) {
   throw new Error('Not implemented');
 }
-
 
 /**
  * Returns playid card id.
@@ -293,8 +303,11 @@ function isString(/* value */) {
  *   'Q♠' => 50
  *   'K♠' => 51
  */
-function getCardId(/* value */) {
-  throw new Error('Not implemented');
+function getCardId(value) {
+  // throw new Error('Not implemented');
+  const cardsArr = ['A♣', '2♣', '3♣', '4♣', '5♣', '6♣', '7♣', '8♣', '9♣', '10♣', 'J♣', 'Q♣', 'K♣', 'A♦', '2♦', '3♦', '4♦', '5♦', '6♦', '7♦', '8♦', '9♦', '10♦', 'J♦', 'Q♦', 'K♦', 'A♥', '2♥', '3♥', '4♥', '5♥', '6♥', '7♥', '8♥', '9♥', '10♥', 'J♥', 'Q♥', 'K♥', 'A♠', '2♠', '3♠', '4♠', '5♠', '6♠', '7♠', '8♠', '9♠', '10♠', 'J♠', 'Q♠', 'K♠'];
+
+  return cardsArr.indexOf(value);
 }
 
 

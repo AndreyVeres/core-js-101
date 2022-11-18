@@ -19,8 +19,9 @@
  *   5, 10 => 50
  *   5, 5  => 25
  */
-function getRectangleArea(/* width, height */) {
-  throw new Error('Not implemented');
+function getRectangleArea(width, height) {
+  // throw new Error('Not implemented');
+  return width * height;
 }
 
 
@@ -51,8 +52,9 @@ function getCircleCircumference(/* radius */) {
  *  10, 0  => 5
  *  -3, 3  => 0
  */
-function getAverage(/* value1, value2 */) {
-  throw new Error('Not implemented');
+function getAverage(value1, value2) {
+  // throw new Error('Not implemented');
+  return (value1 + value2) / 2;
 }
 
 /**
@@ -125,8 +127,9 @@ function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
  *     5     => 5
  *     0     => 0
  */
-function getLastDigit(/* value */) {
-  throw new Error('Not implemented');
+function getLastDigit(value) {
+  // throw new Error('Not implemented');
+  return value.toString().split(value.length - 1);
 }
 
 
@@ -143,6 +146,7 @@ function getLastDigit(/* value */) {
  */
 function parseNumberFromString(/* value */) {
   throw new Error('Not implemented');
+  // return parseInt(value);
 }
 
 /**
@@ -201,8 +205,9 @@ function roundToPowerOfTen(/* num, pow */) {
  *   16 => false
  *   17 => true
  */
-function isPrime(/* n */) {
-  throw new Error('Not implemented');
+function isPrime(n) {
+  // throw new Error('Not implemented');
+  return !n % 2 !== 0;
 }
 
 /**
