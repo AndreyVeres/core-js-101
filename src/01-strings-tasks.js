@@ -249,19 +249,24 @@ function getRectangleString(/* width, height */) {
  */
 function encodeToRot13(str) {
   // throw new Error('Not implemented');
-  const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  const alphabetUpper = 'abcdefghijklmnopqrstuvwxyz';
+  const alphabet = 'abcdefghijklmnopqrstuvwxyz';
   let result = '';
   for (let i = 0; i < str.length; i += 1) {
     const current = str[i];
-    const index = current === current.toUpperCase()
-      ? alphabetUpper.indexOf(current)
-      : alphabet.indexOf(current);
-    result += alphabet[index + 13 ? index + 13 : index + 13 - 26];
+    const upper = current.toUpperCase() === current;
+    const index = alphabet.indexOf(current.toLowerCase());
+    if (current === '!' || current === '?' || current === ' ') {
+      result += current;
+    } else if (alphabet[index + 13]) {
+      result += upper ? alphabet[index + 13].toUpperCase() : alphabet[index + 13];
+    } else {
+      result += upper ? alphabet[index + 13 - 26].toUpperCase() : alphabet[index + 13 - 26];
+    }
   }
   return result;
 }
-console.log(encodeToRot13('hello'));
+
+console.log(encodeToRot13('Why did the chicken cross the road?'));
 /**
  * Returns true if the value is string; otherwise false.
  * @param {string} value
@@ -275,10 +280,13 @@ console.log(encodeToRot13('hello'));
  *   isString('test') => true
  *   isString(new String('test')) => true
  */
-function isString(/* value */) {
-  throw new Error('Not implemented');
+function isString(value) {
+  // throw new Error('Not implemented');
+  return typeof value === 'string'
+    || Object.prototype.toString.call(value) === '[object String]';
 }
 
+// console.log(Object.prototype.toString.call(new String('asd')));
 /**
  * Returns playid card id.
  *
@@ -309,6 +317,8 @@ function getCardId(value) {
 
   return cardsArr.indexOf(value);
 }
+
+console.log(getCardId('Q♠'));
 
 
 module.exports = {

@@ -24,7 +24,6 @@ function getRectangleArea(width, height) {
   return width * height;
 }
 
-
 /**
  * Returns a circumference of circle given by radius.
  *
@@ -36,8 +35,9 @@ function getRectangleArea(width, height) {
  *   3.14 => 19.729201864543903
  *   0    => 0
  */
-function getCircleCircumference(/* radius */) {
-  throw new Error('Not implemented');
+function getCircleCircumference(radius) {
+  // throw new Error('Not implemented');
+  return (Math.PI * 2) * radius;
 }
 
 /**
@@ -54,8 +54,13 @@ function getCircleCircumference(/* radius */) {
  */
 function getAverage(value1, value2) {
   // throw new Error('Not implemented');
-  return (value1 + value2) / 2;
+  return ((value1 + value2) / 2);
 }
+
+
+console.log(getAverage(5, 5));
+console.log(getAverage(10, 0));
+console.log(getAverage(-3, 3));
 
 /**
  * Returns a distance between two points by cartesian coordinates.
@@ -144,10 +149,14 @@ function getLastDigit(value) {
  *     '37'     => 37
  * '-525.5'     => -525.5
  */
-function parseNumberFromString(/* value */) {
-  throw new Error('Not implemented');
-  // return parseInt(value);
+function parseNumberFromString(value) {
+  // throw new Error('Not implemented');
+  return parseInt(value, 10);
 }
+
+console.log(parseNumberFromString('100'))
+console.log(parseNumberFromString('37'))
+console.log(parseNumberFromString('-525.5'))
 
 /**
  * Returns a diagonal length of the rectangular parallelepiped given by its sides a,b,c.
