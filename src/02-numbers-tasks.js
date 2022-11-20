@@ -52,15 +52,14 @@ function getCircleCircumference(radius) {
  *  10, 0  => 5
  *  -3, 3  => 0
  */
-function getAverage(value1, value2) {
+function getAverage(/* value1, value2 */) {
   // throw new Error('Not implemented');
-  return ((value1 + value2) / 2);
+  // const sum = value1 + value2;
+  // console.log(value1.toFixed(10));
+  // return parseFloat(sum / 2);
 }
 
-
-console.log(getAverage(5, 5));
-console.log(getAverage(10, 0));
-console.log(getAverage(-3, 3));
+// console.log(getAverage(Number.MAX_VALUE - 2, Number.MAX_VALUE));
 
 /**
  * Returns a distance between two points by cartesian coordinates.
@@ -134,8 +133,13 @@ function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
  */
 function getLastDigit(value) {
   // throw new Error('Not implemented');
-  return value.toString().split(value.length - 1);
+  return parseInt(value.toString().split('').reverse()[0], 10);
 }
+
+console.log(getLastDigit(100));
+console.log(getLastDigit(37));
+console.log(getLastDigit(5));
+console.log(getLastDigit(0));
 
 
 /**
@@ -151,12 +155,12 @@ function getLastDigit(value) {
  */
 function parseNumberFromString(value) {
   // throw new Error('Not implemented');
-  return parseInt(value, 10);
+  return parseFloat(value, 10);
 }
 
-console.log(parseNumberFromString('100'))
-console.log(parseNumberFromString('37'))
-console.log(parseNumberFromString('-525.5'))
+console.log(parseNumberFromString('100'));
+console.log(parseNumberFromString('37'));
+console.log(parseNumberFromString('-525.5'));
 
 /**
  * Returns a diagonal length of the rectangular parallelepiped given by its sides a,b,c.
@@ -216,8 +220,14 @@ function roundToPowerOfTen(/* num, pow */) {
  */
 function isPrime(n) {
   // throw new Error('Not implemented');
-  return !n % 2 !== 0;
+  let prime = true;
+  for (let i = 2; i < n - 1; i += 1) {
+    if (n % i === 0) prime = false;
+  }
+
+  return prime && n % n === 0;
 }
+
 
 /**
  * Tries to convert value to number and returns it if conversion was successful;
@@ -234,8 +244,10 @@ function isPrime(n) {
  *   toNumber(42, 0) => 42
  *   toNumber(new Number(42), 0) => 42
  */
-function toNumber(/* value, def */) {
-  throw new Error('Not implemented');
+function toNumber(value, def) {
+  // throw new Error('Not implemented');
+  if (!value) return def;
+  return parseInt(value, 10) || def;
 }
 
 module.exports = {
