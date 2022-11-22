@@ -340,8 +340,32 @@ console.log(getDigitalRoot(12345));
  *   '{)' = false
  *   '{[(<{[]}>)]}' = true
  */
-function isBracketsBalanced(/* str */) {
-  throw new Error('Not implemented');
+function isBracketsBalanced(str) {
+  // throw new Error('Not implemented');
+
+  const start = '[({<';
+  const stack = [];
+
+  const map = {
+    '}': '{',
+    ']': '[',
+    '>': '<',
+    ')': '(',
+  };
+
+  for (let i = 0; i < str.length; i += 1) {
+    const current = str[i];
+    if (start.includes(str[i])) {
+      stack.push(current);
+    } else {
+      const last = stack.pop();
+      if (last !== map[current]) {
+        return false;
+      }
+    }
+  }
+
+  return stack.length === 0;
 }
 
 
