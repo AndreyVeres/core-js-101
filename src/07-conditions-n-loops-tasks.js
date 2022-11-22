@@ -316,7 +316,7 @@ function getDigitalRoot(num) {
     .map((item) => parseInt(item, 10))
     .reduce((acc, item) => acc + item);
 }
-console.log(getDigitalRoot(12345));
+
 
 /**
  * Returns true if the specified string has the balanced brackets and false otherwise.
@@ -390,10 +390,10 @@ function isBracketsBalanced(str) {
  */
 function toNaryString(num, n) {
   // throw new Error('Not implemented');
-  return parseInt(num , n)
+  return parseInt(num, n);
 }
 
-console.log(toNaryString(1024 , 4))
+// console.log(toNaryString(1024, 4));
 
 
 /**
