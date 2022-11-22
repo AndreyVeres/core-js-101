@@ -293,7 +293,6 @@ function isCreditCardNumber(ccn) {
   return false;
 }
 
-console.log(isCreditCardNumber(4571234567890111));
 
 /**
  * Returns the digital root of integer:
@@ -389,9 +388,12 @@ function isBracketsBalanced(str) {
  *    365, 4  => '11231'
  *    365, 10 => '365'
  */
-function toNaryString(/* num, n */) {
-  throw new Error('Not implemented');
+function toNaryString(num, n) {
+  // throw new Error('Not implemented');
+  return parseInt(num , n)
 }
+
+console.log(toNaryString(1024 , 4))
 
 
 /**
