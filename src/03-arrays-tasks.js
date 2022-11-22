@@ -38,7 +38,13 @@ function findElement(arr, value) {
  */
 function generateOdds(/* len */) {
   // throw new Error('Not implemented');
-  // return Array.from(new Array(len).fill(0), (elem, index) => elem += index += 2);
+
+  // let i = -1;
+  // return new Array(len).fill(0).map((item) => {
+  //   i += 2;
+  //   item += i;
+  //   return item;
+  // });
 }
 
 
@@ -58,9 +64,6 @@ function doubleArray(arr) {
   // throw new Error('Not implemented');
   return arr.concat(new Array(arr)).flat(1);
 }
-
-
-// console.log(doubleArray([0, 1, 2, 3, 4, 5]))
 
 
 /**
@@ -468,14 +471,7 @@ function sortCitiesArray(arr) {
   return arr.sort((a, b) => a[1] - b[1]);
 }
 
-console.log(sortCitiesArray([
-  { country: 'Russia', city: 'Moscow' },
-  { country: 'Belarus', city: 'Minsk' },
-  { country: 'Poland', city: 'Warsaw' },
-  { country: 'Russia', city: 'Saint Petersburg' },
-  { country: 'Poland', city: 'Krakow' },
-  { country: 'Belarus', city: 'Brest' },
-]));
+
 /**
  * Creates an identity matrix of the specified size
  *
@@ -619,7 +615,8 @@ function getElementByIndexes(/* arr, indexes */) {
  *
  */
 function swapHeadAndTail(/* arr */) {
-  throw new Error('Not implemented');
+  // throw new Error('Not implemented');
+
 }
 
 

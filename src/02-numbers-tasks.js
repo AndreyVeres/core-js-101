@@ -136,12 +136,6 @@ function getLastDigit(value) {
   return parseInt(value.toString().split('').reverse()[0], 10);
 }
 
-console.log(getLastDigit(100));
-console.log(getLastDigit(37));
-console.log(getLastDigit(5));
-console.log(getLastDigit(0));
-
-
 /**
  * Returns a number by given string representation.
  *
@@ -158,9 +152,6 @@ function parseNumberFromString(value) {
   return parseFloat(value, 10);
 }
 
-console.log(parseNumberFromString('100'));
-console.log(parseNumberFromString('37'));
-console.log(parseNumberFromString('-525.5'));
 
 /**
  * Returns a diagonal length of the rectangular parallelepiped given by its sides a,b,c.

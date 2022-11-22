@@ -266,7 +266,7 @@ function encodeToRot13(str) {
   return result;
 }
 
-console.log(encodeToRot13('Why did the chicken cross the road?'));
+
 /**
  * Returns true if the value is string; otherwise false.
  * @param {string} value
@@ -317,8 +317,6 @@ function getCardId(value) {
 
   return cardsArr.indexOf(value);
 }
-
-console.log(getCardId('Q♠'));
 
 
 module.exports = {
