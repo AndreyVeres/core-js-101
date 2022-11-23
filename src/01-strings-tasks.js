@@ -226,10 +226,36 @@ function extractEmails(str) {
  *             '└──────────┘\n'
  *
  */
-function getRectangleString(/* width, height */) {
-  throw new Error('Not implemented');
+function getRectangleString(width, height) {
+  // throw new Error('Not implemented');
+  let result = '';
+
+  for (let i = 1; i <= height; i += 1) {
+    for (let j = 0; j < width; j += 1) {
+      if (i === 1 && j === 0) result += String.fromCharCode(9484);
+      else if (i === 1 && j === width - 1) result += String.fromCharCode(9488);
+      else if (i === height && j === 0) result += String.fromCharCode(9492);
+      else if (i === height && j === width - 1) result += String.fromCharCode(9496);
+      else if (i === 1 && j !== 0 && j !== width) result += String.fromCharCode(9472); // gorizont
+      else if (i === height && j !== 0 && j !== width) result += String.fromCharCode(9472);
+      else if (i > 1 && j === 0) result += String.fromCharCode(9474);
+      else if (i > 1 && j === width - 1) result += String.fromCharCode(9474);
+      else result += ' ';
+    }
+
+    result += '\n';
+  }
+
+  return result;
 }
 
+
+// console.log(getRectangleString(6, 4));
+
+// console.log(String.fromCharCode(9485))
+// console.log(String.fromCharCode(9489))
+// console.log(String.fromCharCode(9493))
+// console.log(String.fromCharCode(9499))
 
 /**
  * Encode specified string with ROT13 cipher
