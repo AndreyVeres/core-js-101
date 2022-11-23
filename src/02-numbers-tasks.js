@@ -166,7 +166,7 @@ function parseNumberFromString(value) {
  *   3,3,3   => 5.196152422706632
  *   1,2,3   => 3.741657386773941
  */
-function getParallelepipedDiagonal(/* a, b, c */) {
+function getParallelepipedDiagonal(a, b, c) {
   throw new Error('Not implemented');
 }
 
@@ -188,9 +188,11 @@ function getParallelepipedDiagonal(/* a, b, c */) {
  *   1678, 2  => 1700
  *   1678, 3  => 2000
  */
-function roundToPowerOfTen(/* num, pow */) {
-  throw new Error('Not implemented');
+function roundToPowerOfTen(num, pow) {
+  // throw new Error('Not implemented');
+  return Math.round(num / Math.pow(10, pow)) * Math.pow(10, pow);
 }
+// console.log(Math.round(1234 / Math.pow(10 , 2)) * Math.pow(10 , 2))
 
 /**
  * Returns true is the number is prime; otherwise false.
