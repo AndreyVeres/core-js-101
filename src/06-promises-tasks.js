@@ -30,7 +30,27 @@
  */
 function willYouMarryMe(/* isPositiveAnswer */) {
   throw new Error('Not implemented');
+  // return new Promise(((resolve, reject) => {
+  //   let answer = '';
+  //   if (isPositiveAnswer) {
+  //     answer = 'Hooray!!! She said "Yes"!';
+  //     resolve(answer);
+  //   }s
+  //   // answer = 'Oh no, she said "No".';
+  //   reject(console.log('asd'));
+
+  // }));
 }
+
+// const p1 = willYouMarryMe(true);
+// p1.then(answer => console.log(answer))
+
+// const p2 = willYouMarryMe(false);
+// p2.then((answer) => console.log(answer));
+
+// const p3 = willYouMarryMe();
+// p3.then((answer) => console.log(answer))
+//   .catch((error) => console.log(error.message));
 
 
 /**
