@@ -248,11 +248,19 @@ function toArrayOfSquares(arr) {
  *   [ 0, 0, 0, 0, 0]         => [ 0, 0, 0, 0, 0]
  *   [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ] => [ 1, 3, 6, 10, 15, 21, 28, 36, 45, 55 ]
  */
-function getMovingSum(/* arr */) {
-  // throw new Error('Not implemented');
 
-  // return arr.map((item, index) => console.log(arr[index]))
+
+function getMovingSum(arr) {
+  // throw new Error('Not implemented');
+  return arr.map((item, index) => {
+    const value = Array.from(arr).slice(0, index + 1).reduce((acc, i) => acc + i, 0);
+    return item + value - item;
+  });
 }
+
+// console.log(getMovingSum([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
+// console.log(getMovingSum([1, 1, 1, 1, 1]))
+
 
 /**
  * Returns every second item from the specified array:
@@ -524,10 +532,18 @@ function getIdentityMatrix(/* n */) {
 
 function getIntervalArray(start, end) {
   // throw new Error('Not implemented');
-
-
-  return new Array(end - start + 1).fill(0).map((item, index) => item + index + 1);
+  const result = new Array(end - start + 1).fill(start);
+  let value = -1;
+  return result.map((item) => {
+    value += 1;
+    return item + value;
+  });
 }
+
+// console.log(getIntervalArray(-2, 2));
+// console.log(getIntervalArray(1, 5));
+// console.log(getIntervalArray(0, 100));
+// console.log(getIntervalArray(3, 3));
 
 
 /**
@@ -576,11 +592,15 @@ function distinct(arr) {
  *    "Poland" => ["Lodz"]
  *   }
  */
+
+
 function group(/* array, keySelector, valueSelector */) {
-  // throw new Error('Not implemented');
-  // const result = new Map();
-  // result.set(keySelector, array.filter((item) => item[valueSelector]));
-  // return result;
+  throw new Error('Not implemented');
+
+  // for (let i = 0; i < array.length; i++) {
+  //   let test = keySelector(array)
+  //   console.log(test)
+  // }
 }
 
 // console.log(group([
@@ -590,7 +610,11 @@ function group(/* array, keySelector, valueSelector */) {
 //   { country: 'Belarus', city: 'Grodno' },
 //   { country: 'Belarus', city: 'Minsk' },
 //   { country: 'Poland', city: 'Lodz' }
-// ] ,))
+// ],
+//   item => item.country,
+//   item => item.city))
+
+
 /**
  * Projects each element of the specified array to a sequence
  * and flattens the resulting sequences into one array.
@@ -621,13 +645,10 @@ function selectMany(/* arr, childrenSelector */) {
  *   ['one','two','three'], [2]       => 'three'  (arr[2])
  *   [[[ 1, 2, 3]]], [ 0, 0, 1 ]      => 2        (arr[0][0][1])
  */
-function getElementByIndexes(arr, indexes) {
+function getElementByIndexes(/* arr, indexes */) {
   // throw new Error('Not implemented');
-  return arr.flat(1)
+  // return arr.flat(1);
 }
-
-console.log(getElementByIndexes([[[1, 2, 3]]], [0, 0, 1]))
-
 
 /**
  * Swaps the head and tail of the specified array:
