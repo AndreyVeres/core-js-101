@@ -28,22 +28,30 @@
  *      .catch((error) => console.log(error.message)) // 'Error: Wrong parameter is passed!
  *                                                    //  Ask her again.';
  */
-function willYouMarryMe(/* isPositiveAnswer */) {
-  throw new Error('Not implemented');
-  // return new Promise(((resolve, reject) => {
-  //   let answer = '';
-  //   if (isPositiveAnswer) {
-  //     answer = 'Hooray!!! She said "Yes"!';
-  //     resolve(answer);
-  //   }s
-  //   // answer = 'Oh no, she said "No".';
-  //   reject(console.log('asd'));
 
-  // }));
+
+function willYouMarryMe(isPositiveAnswer) {
+  // throw new Error('Not implemented');
+  return new Promise((resolve, reject) => {
+    if (typeof isPositiveAnswer === 'boolean') {
+      if (isPositiveAnswer) {
+        resolve('Hooray!!! She said "Yes"!');
+      }
+      if (!isPositiveAnswer) {
+        reject(Error('Oh no, she said "No".'));
+      }
+    }
+
+    if (typeof isPositiveAnswer !== 'boolean') {
+      reject(Error('Wrong parameter is passed! Ask her again.'));
+    }
+  });
 }
 
-// const p1 = willYouMarryMe(true);
-// p1.then(answer => console.log(answer))
+
+// test.then();
+// p1.then((answer) => console.log(answer));
+// p1.then((answer) => console.log(answer));
 
 // const p2 = willYouMarryMe(false);
 // p2.then((answer) => console.log(answer));
@@ -68,8 +76,9 @@ function willYouMarryMe(/* isPositiveAnswer */) {
  *    })
  *
  */
-function processAllPromises(/* array */) {
-  throw new Error('Not implemented');
+function processAllPromises(array) {
+  // throw new Error('Not implemented');
+  return Promise.all(array);
 }
 
 /**
@@ -91,8 +100,9 @@ function processAllPromises(/* array */) {
  *    })
  *
  */
-function getFastestPromise(/* array */) {
-  throw new Error('Not implemented');
+function getFastestPromise(array) {
+  // throw new Error('Not implemented');
+  return Promise.race(array);
 }
 
 /**
@@ -112,9 +122,23 @@ function getFastestPromise(/* array */) {
  *    });
  *
  */
+
+// const promises = [Promise.resolve(1), Promise.resolve(2), Promise.resolve(3)];
 function chainPromises(/* array, action */) {
   throw new Error('Not implemented');
+
+
+  // return Promise.all(array).then((values) => values.reduce(action));
 }
+
+// const p = chainPromises(promises, (a, b) => a + b);
+
+
+// console.log(p);
+// p.then((res) => {
+//   console.log(res);
+// });
+
 
 module.exports = {
   willYouMarryMe,
