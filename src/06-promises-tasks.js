@@ -38,7 +38,7 @@ function willYouMarryMe(isPositiveAnswer) {
         resolve('Hooray!!! She said "Yes"!');
       }
       if (!isPositiveAnswer) {
-        reject(Error('Oh no, she said "No".'));
+        resolve('Oh no, she said "No".');
       }
     }
 
