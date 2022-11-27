@@ -124,24 +124,17 @@ function getFastestPromise(array) {
  */
 
 // const promises = [Promise.resolve(1), Promise.resolve(2), Promise.resolve(3)];
-function chainPromises(/* array, action */) {
-  throw new Error('Not implemented');
+function chainPromises(array, action) {
+  // throw new Error('Not implemented');
   // return new Promise((resolve, reject) => {
   //   async function getValue() {
+  //     const data = [];
 
-  //     const p1 = await array[0];
-  //     const p2 = await array[1];
-  //     const p3 = await array[2];
-  //     const numbers = [p1, p2, p3];
+  //     for await (const result of array) {
+  //       data.push(result);
+  //     }
 
-  //     return new Promise((res, rej) => {
-  //       res(numbers.reduce(action));
-
-  //       if (false) {
-  //         rej();
-  //       }
-  //     });
-
+  //     return data.reduce(action);
   //   }
   //   resolve(getValue(array));
 
@@ -149,8 +142,22 @@ function chainPromises(/* array, action */) {
   //     reject();
   //   }
   // });
-}
 
+  const result = [];
+  return Promise.resolve(array)
+    .then((promises) => {
+      for (let i = 0; i < promises.length; i += 1) {
+        const current = promises[i];
+        current.then((value) => {
+          result.push(value);
+        })
+          .catch(() => 'err');
+      }
+    })
+    .then(() => result.reduce(action));
+}
+// return Promise.allSettled(array).then((values) => values.reduce(action));
+// return Promise.all(array).then((values) => values.reduce(action));
 // const p = chainPromises(promises, (a, b) => a + b);
 // p.then((data) => console.log(data));
 
