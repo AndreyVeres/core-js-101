@@ -126,13 +126,33 @@ function getFastestPromise(array) {
 // const promises = [Promise.resolve(1), Promise.resolve(2), Promise.resolve(3)];
 function chainPromises(/* array, action */) {
   throw new Error('Not implemented');
+  // return new Promise((resolve, reject) => {
+  //   async function getValue() {
 
+  //     const p1 = await array[0];
+  //     const p2 = await array[1];
+  //     const p3 = await array[2];
+  //     const numbers = [p1, p2, p3];
 
-  // return Promise.all(array).then((values) => values.reduce(action));
+  //     return new Promise((res, rej) => {
+  //       res(numbers.reduce(action));
+
+  //       if (false) {
+  //         rej();
+  //       }
+  //     });
+
+  //   }
+  //   resolve(getValue(array));
+
+  //   if (false) {
+  //     reject();
+  //   }
+  // });
 }
 
 // const p = chainPromises(promises, (a, b) => a + b);
-
+// p.then((data) => console.log(data));
 
 // console.log(p);
 // p.then((res) => {
