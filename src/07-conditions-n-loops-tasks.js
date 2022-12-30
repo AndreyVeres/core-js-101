@@ -408,9 +408,13 @@ function toNaryString(/* num, n */) {
  *   ['/web/assets/style.css', '/.bin/mocha',  '/read.me'] => '/'
  *   ['/web/favicon.ico', '/web-scripts/dump', '/verbalizer/logs'] => '/'
  */
-function getCommonDirectoryPath(/* pathes */) {
+
+function getCommonDirectoryPath(/*pathes*/) {
   throw new Error('Not implemented');
+
 }
+
+console.log(getCommonDirectoryPath(['/web/images/image1.png', '/web/images/image2.png']))
 
 
 /**
