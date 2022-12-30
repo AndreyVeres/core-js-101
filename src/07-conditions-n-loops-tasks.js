@@ -388,9 +388,9 @@ function isBracketsBalanced(str) {
  *    365, 4  => '11231'
  *    365, 10 => '365'
  */
-function toNaryString(/* num, n */) {
-  throw new Error('Not implemented');
-  // return parseInt(num, n);
+function toNaryString(num, n) {
+  // throw new Error('Not implemented');
+  return num.toString(n);
 }
 
 // console.log(toNaryString(1024, 4));
@@ -409,13 +409,9 @@ function toNaryString(/* num, n */) {
  *   ['/web/favicon.ico', '/web-scripts/dump', '/verbalizer/logs'] => '/'
  */
 
-function getCommonDirectoryPath(/*pathes*/) {
+function getCommonDirectoryPath(/* pathes */) {
   throw new Error('Not implemented');
-
 }
-
-console.log(getCommonDirectoryPath(['/web/images/image1.png', '/web/images/image2.png']))
-
 
 /**
  * Returns the product of two specified matrixes.
