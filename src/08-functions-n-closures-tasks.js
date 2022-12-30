@@ -158,9 +158,26 @@ function logger(/* func, logFunc */) {
  *   partialUsingArguments(fn, 'a','b','c')('d') => 'abcd'
  *   partialUsingArguments(fn, 'a','b','c','d')() => 'abcd'
  */
-function partialUsingArguments(/* fn, ...args1 */) {
-  throw new Error('Not implemented');
+function partialUsingArguments(fn, ...args1) {
+  return function a(...args) {
+    return fn(...args1, ...args);
+  };
 }
+
+// function sum(a) {
+//   let currentSum = a;
+
+//   function f(b) {
+//     currentSum += b;
+//     return f;
+//   }
+
+//   f.toString = function () {
+//     return currentSum;
+//   };
+
+//   return f;
+// }
 
 
 /**
@@ -181,23 +198,22 @@ function partialUsingArguments(/* fn, ...args1 */) {
  *   getId10() => 11
  */
 
-function getIdGeneratorFunction(/* startFrom */) {
-  throw new Error('Not implemented');
-  // let index = startFrom - 1;
-  // index += 1;
-  // return function b() {
-  //   return index;
-  // };
+function getIdGeneratorFunction(startFrom) {
+  let index = startFrom - 1;
+  return function b() {
+    index += 1;
+    return index;
+  };
 }
 
 // const getId4 = getIdGeneratorFunction(4);
 // const getId10 = getIdGeneratorFunction(10);
-// getId4();
-// getId10();
-// getId4();
-// getId4();
-// getId4();
-// getId10();
+// console.log(getId4());
+// console.log(getId10());
+// console.log(getId4());
+// console.log(getId4());
+// console.log(getId4());
+// console.log(getId10());
 
 module.exports = {
   getComposition,
