@@ -591,17 +591,27 @@ function distinct(arr) {
  *    "Poland" => ["Lodz"]
  *   }
  */
-
+//  const test = [
+//   { country: 'Belarus', city: 'Brest' },
+//   { country: 'Russia', city: 'Omsk' },
+//   { country: 'Russia', city: 'Samara' },
+//   { country: 'Belarus', city: 'Grodno' },
+//   { country: 'Belarus', city: 'Minsk' },
+//   { country: 'Poland', city: 'Lodz' }
+// ]
 
 function group(/* array, keySelector, valueSelector */) {
   throw new Error('Not implemented');
+  // const result = new Map();
+  // array.map((obj) => {
+  //   const key = keySelector(obj);
+  //   const value = valueSelector(obj)
+  //   console.log(key ,value)
+  //   // return result.set(key, value);
+  // });
 
-  // for (let i = 0; i < array.length; i++) {
-  //   let test = keySelector(array)
-  //   console.log(test)
-  // }
+  // return result;
 }
-
 // console.log(group([
 //   { country: 'Belarus', city: 'Brest' },
 //   { country: 'Russia', city: 'Omsk' },
