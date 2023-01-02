@@ -606,28 +606,30 @@ function distinct(arr) {
 //   { country: 'Poland', city: 'Lodz' }
 // ]
 
-function group(/* array, keySelector, valueSelector */) {
-  throw new Error('Not implemented');
-  // const result = new Map();
-  // array.map((obj) => {
-  //   const key = keySelector(obj);
-  //   const value = valueSelector(obj)
-  //   console.log(key ,value)
-  //   // return result.set(key, value);
-  // });
-
-  // return result;
+function group(array, keySelector, valueSelector) {
+  // throw new Error('Not implemented');
+  const result = new Map();
+  array.map((item) => {
+    const key = keySelector(item);
+    const value = valueSelector(item);
+    if (!result[key]) {
+      result.set(key, [])
+    }
+    result[key].push(value);
+    return item;
+  });
+  return result;
 }
-// console.log(group([
-//   { country: 'Belarus', city: 'Brest' },
-//   { country: 'Russia', city: 'Omsk' },
-//   { country: 'Russia', city: 'Samara' },
-//   { country: 'Belarus', city: 'Grodno' },
-//   { country: 'Belarus', city: 'Minsk' },
-//   { country: 'Poland', city: 'Lodz' }
-// ],
-//   item => item.country,
-//   item => item.city))
+console.log(group([
+  { country: 'Belarus', city: 'Brest' },
+  { country: 'Russia', city: 'Omsk' },
+  { country: 'Russia', city: 'Samara' },
+  { country: 'Belarus', city: 'Grodno' },
+  { country: 'Belarus', city: 'Minsk' },
+  { country: 'Poland', city: 'Lodz' },
+],
+  (item) => item.country,
+  (item) => item.city));
 
 
 /**
