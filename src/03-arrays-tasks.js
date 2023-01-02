@@ -507,13 +507,19 @@ function sortCitiesArray(arr) {
  */
 
 
-function getIdentityMatrix(/* n */) {
-  throw new Error('Not implemented');
+function getIdentityMatrix(n) {
+  // throw new Error('Not implemented');
 
-  // let arr = new Array(n).fill(new Array(n).fill(0))
+  const arr = new Array(n).fill(new Array(n).fill(0));
+
+  return arr.map((item, index) => item.map((item2, index2) => {
+    if (index === index2) {
+      return 1;
+    }
+    return 0;
+  }));
 }
-
-
+// console.log(getIdentityMatrix(5))
 /**
  * Creates an array of integers from the specified start to end (inclusive)
  *
@@ -658,8 +664,8 @@ function selectMany(arr, childrenSelector) {
  */
 function getElementByIndexes(/* arr, indexes */) {
   throw new Error('Not implemented');
-  // return arr.flat(1);
 }
+// console.log(getElementByIndexes([[[1, 2, 3]]], [0, 0, 1]));
 
 /**
  * Swaps the head and tail of the specified array:
@@ -679,9 +685,23 @@ function getElementByIndexes(/* arr, indexes */) {
  *   [ 1, 2, 3, 4, 5, 6, 7, 8 ]   =>  [ 5, 6, 7, 8, 1, 2, 3, 4 ]
  *
  */
-function swapHeadAndTail(/* arr */) {
-  throw new Error('Not implemented');
+
+
+function swapHeadAndTail(arr) {
+  // throw new Error('Not implemented');
+  if (arr.length === 1) return arr;
+  const result = [];
+  const left = Math.floor(arr.length / 2);
+  const right = Math.round(arr.length / 2);
+  result.push(...arr.slice(right));
+  if (arr.length % 2 !== 0) result.push(...arr.slice(left, right));
+  result.push(...arr.slice(0, left));
+
+  return result;
 }
+
+
+console.log(swapHeadAndTail([1, 2, 3]));
 
 
 module.exports = {

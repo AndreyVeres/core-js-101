@@ -409,19 +409,19 @@ function toNaryString(num, n) {
  *   ['/web/favicon.ico', '/web-scripts/dump', '/verbalizer/logs'] => '/'
  */
 
-function getCommonDirectoryPath(pathes) {
-  // throw new Error('Not implemented');
-  const arr = pathes.map((path) => path.split('/'));
-  let result = '/';
-  const firtsElement = arr[0];
-  for (let i = 1; i < firtsElement.length; i += 1) {
-    if (arr.every((item) => item[i] === arr[0][i])) {
-      result += `${arr[0][i]}/`;
-    }
-  }
-  return result;
+function getCommonDirectoryPath(/* pathes */) {
+  throw new Error('Not implemented');
+  // const arr = pathes.map((path) => path.split('/'));
+  // let result = '';
+  // const firtsElement = arr[0];
+  // for (let i = 1; i < firtsElement.length; i += 1) {
+  //   if (arr.every((item) => item[i] === arr[0][i])) {
+  //     if (pathes.every((item) => item[0] === item[0][i])) result += '/'
+  //     result += `${arr[0][i]}/`;
+  //   }
+  // }
+  // return result;
 }
-
 /**
  * Returns the product of two specified matrixes.
  * See details: https://en.wikipedia.org/wiki/Matrix_multiplication
