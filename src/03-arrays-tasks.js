@@ -613,23 +613,23 @@ function group(array, keySelector, valueSelector) {
     const key = keySelector(item);
     const value = valueSelector(item);
     if (!result[key]) {
-      result.set(key, [])
+      result.set(key, []);
     }
     result[key].push(value);
     return item;
   });
   return result;
 }
-console.log(group([
-  { country: 'Belarus', city: 'Brest' },
-  { country: 'Russia', city: 'Omsk' },
-  { country: 'Russia', city: 'Samara' },
-  { country: 'Belarus', city: 'Grodno' },
-  { country: 'Belarus', city: 'Minsk' },
-  { country: 'Poland', city: 'Lodz' },
-],
-  (item) => item.country,
-  (item) => item.city));
+// console.log(group([
+//   { country: 'Belarus', city: 'Brest' },
+//   { country: 'Russia', city: 'Omsk' },
+//   { country: 'Russia', city: 'Samara' },
+//   { country: 'Belarus', city: 'Grodno' },
+//   { country: 'Belarus', city: 'Minsk' },
+//   { country: 'Poland', city: 'Lodz' },
+// ],
+// (item) => item.country,
+// (item) => item.city));
 
 
 /**
@@ -701,10 +701,6 @@ function swapHeadAndTail(arr) {
 
   return result;
 }
-
-
-console.log(swapHeadAndTail([1, 2, 3]));
-
 
 module.exports = {
   findElement,
